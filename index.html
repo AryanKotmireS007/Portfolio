@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aryan Kotmire | Portfolio</title>
+  <style>
+    :root { --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#475569; --accent:#0ea5e9; --border:rgba(15,23,42,0.08); --shadow:0 12px 32px rgba(15,23,42,0.08); }
+    [data-theme="dark"] { --bg:#0f172a; --card:#1f2937; --text:#e5e7eb; --muted:#9ca3af; --accent:#38bdf8; --border:rgba(255,255,255,0.08); --shadow:0 12px 40px rgba(0,0,0,0.35); }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(180deg,var(--bg) 0%,color-mix(in srgb, var(--bg) 90%, #000 10%) 100%);color:var(--text);line-height:1.6;transition:background .25s ease,color .25s ease} a{color:inherit;text-decoration:none}
+    .container{width:min(1100px,calc(100% - 32px));margin:0 auto}
+    .nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb, var(--card) 82%, transparent);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:16px 0;gap:16px;flex-wrap:wrap}.brand{font-weight:800;letter-spacing:.5px}.nav-links{display:flex;gap:18px;flex-wrap:wrap}.nav-links a{color:var(--muted);font-size:.95rem}.nav-links a:hover{color:var(--accent)}
+    .theme-toggle{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.92rem}.switch{position:relative;display:inline-block;width:52px;height:28px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;inset:0;background:#cbd5e1;border-radius:999px;transition:.25s}.slider:before{content:"";position:absolute;height:22px;width:22px;left:3px;top:3px;background:white;border-radius:50%;transition:.25s;box-shadow:0 2px 8px rgba(0,0,0,.2)}input:checked + .slider{background:linear-gradient(135deg,#38bdf8,#0ea5e9)}input:checked + .slider:before{transform:translateX(24px)}
+    .hero{padding:88px 0 56px}.hero-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:28px;align-items:center}.pill{display:inline-block;padding:8px 14px;border:1px solid rgba(14,165,233,.25);background:rgba(14,165,233,.08);color:#0369a1;border-radius:999px;font-size:.9rem;margin-bottom:18px}
+    h1{margin:0 0 14px;font-size:clamp(2.4rem,5vw,4.8rem);line-height:1.05}.lead{color:var(--muted);font-size:1.08rem;max-width:68ch}.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;border:1px solid var(--border);background:var(--card);box-shadow:var(--shadow);font-weight:600}.btn.primary{background:linear-gradient(135deg,#38bdf8,#0ea5e9);color:#fff;border:none}
+    .profile-card,.section-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:24px;box-shadow:var(--shadow)}.profile-card h3,.section-title{margin-top:0}.meta{color:var(--muted);margin:10px 0;font-size:.95rem}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding:18px 0 72px}section{margin-bottom:22px}.section-title{font-size:1.45rem;margin-bottom:14px}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:var(--shadow)}.card p{color:var(--muted)}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}.chip{padding:8px 12px;border-radius:999px;background:rgba(14,165,233,.08);border:1px solid rgba(14,165,233,.15);color:#0369a1;font-size:.92rem}.list{margin:0;padding-left:18px;color:var(--muted)}.list li{margin-bottom:10px}
+    .experience,.projects{display:grid;gap:16px}.item-title{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;margin-bottom:8px}.item-title h3,.item-title h4{margin:0}.item-title span{color:var(--muted);font-size:.92rem}
+    .project-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.project-card{background:linear-gradient(180deg,var(--card),color-mix(in srgb, var(--card) 85%, var(--bg) 15%));border:1px solid var(--border);border-radius:20px;padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}.project-card h3{margin:0;font-size:1.15rem}.tech{color:var(--accent);font-size:.92rem;font-weight:700}.project-card ul{margin:0;padding-left:18px;color:var(--muted)}.project-card li{margin-bottom:8px}
+    .footer{padding:24px 0 44px;color:var(--muted);text-align:center;border-top:1px solid var(--border)}.contact-links a{color:var(--accent)}
+    @media (max-width:860px){.hero-grid,.grid,.project-cards{grid-template-columns:1fr}.hero{padding-top:56px}}
+  </style>
+</head>
+<body data-theme="light">
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Aryan Kotmire</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="theme-toggle">
+        <span>Dark mode</span>
+        <label class="switch">
+          <input id="themeToggle" type="checkbox" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="pill">MSc Advanced Computer Science Graduate | Merit</div>
+        <h1>Building scalable software, data-driven systems, and polished user experiences.</h1>
+        <p class="lead">I am an enthusiastic Advanced Computer Science graduate from the University of Leicester with hands-on experience in backend development, data engineering, and full-stack application development. My work spans .NET, C#, SQL Server, Python, TensorFlow, Java, React.js, Node.js, and MongoDB, with a focus on solving practical problems through reliable and scalable systems.</p>
+        <div class="cta-row"><a class="btn primary" href="#contact">Contact Me</a><a class="btn" href="#projects">View Projects</a></div>
+      </div>
+      <aside class="profile-card">
+        <h3>Profile</h3>
+        <p class="meta"><strong>Email:</strong> kotmirearyan1@gmail.com</p>
+        <p class="meta"><strong>Phone:</strong> +44 7818952371 / +91 9136396899</p>
+        <p class="meta"><strong>Location:</strong> Leicester, United Kingdom</p>
+        <p class="meta"><strong>LinkedIn:</strong> linkedin.com/in/aryankotmire</p>
+        <p class="meta"><strong>GitHub:</strong> github.com/Sierra-007</p>
+      </aside>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <section id="about" class="card">
+        <h2 class="section-title">About Me</h2>
+        <p>I am a motivated graduate who enjoys designing and building software that is both functional and impactful. My experience includes backend-focused data pipelines, API development, database design, and responsive web applications. I enjoy tackling real-world challenges and turning them into practical technical solutions.</p>
+        <p>Outside of academics, I have developed strong leadership, communication, and teamwork skills through IEEE responsibilities, student activities, and competitive sport.</p>
+      </section>
+
+      <section id="skills" class="card">
+        <h2 class="section-title">Skills</h2>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">Java</span><span class="chip">C#</span><span class="chip">.NET</span><span class="chip">SQL</span><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">MongoDB</span><span class="chip">MySQL</span><span class="chip">TensorFlow</span><span class="chip">REST APIs</span><span class="chip">Power BI</span><span class="chip">Git</span><span class="chip">Azure DevOps</span><span class="chip">Jira</span>
+        </div>
+      </section>
+
+      <section id="experience" class="card">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience">
+          <div>
+            <div class="item-title"><h3>Software Developer Intern — Alackrity Consols</h3><span>July 2025 – October 2025</span></div>
+            <ul class="list">
+              <li>Developed a .NET-based data processing pipeline for Bangalore Metro live transit data analysis.</li>
+              <li>Built scalable integration solutions using C# and .NET Framework for XML and JSON API feeds.</li>
+              <li>Designed SQL Server databases and created Power BI dashboards for analytics and stakeholder reporting.</li>
+            </ul>
+          </div>
+          <div>
+            <div class="item-title"><h3>Full Stack Developer Intern — Alhansat Technologies</h3><span>January 2023 – March 2025</span></div>
+            <ul class="list">
+              <li>Developed backend services using Node.js and Express.js, building RESTful APIs for web applications.</li>
+              <li>Worked with MongoDB, Java Spring Boot, and React.js, with a focus on backend logic and integration.</li>
+              <li>Improved backend performance and used Git for collaborative development and clean code management.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="card">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-cards">
+          <article class="project-card">
+            <h3>Smart Data Engine</h3>
+            <div class="tech">Python, SQL</div>
+            <ul>
+              <li>Built a data engineering tool that cleans raw input data and prepares it for analysis.</li>
+              <li>Implemented trend analysis and pattern recognition to identify meaningful insights.</li>
+              <li>Generated graphs and reports to highlight anomalies, patterns, and trends.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <h3>GiffyGo – Live Prepaid Auto System</h3>
+            <div class="tech">Python, SQL, MySQL, TensorFlow</div>
+            <ul>
+              <li>Built a system linked with Bangalore Namma Metro station data for kiosk rate configuration.</li>
+              <li>Applied pattern recognition and trend analysis on live traffic data.</li>
+              <li>Aligned outputs with government-approved rate structures.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <h3>BMRCL Website</h3>
+            <div class="tech">Node.js, MongoDB, Python, React.js</div>
+            <ul>
+              <li>Contributed to a responsive and modern website for Bangalore Namma Metro.</li>
+              <li>Focused on usability, accessibility, and smooth user interaction.</li>
+              <li>Designed the site to support multiple languages for wider public access.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <h3>Destinex – Personalized Travel Itinerary Partner</h3>
+            <div class="tech">MERN Stack</div>
+            <ul>
+              <li>Developed a web application that generates tailored travel itineraries.</li>
+              <li>Used user preferences and travel patterns to personalise recommendations.</li>
+              <li>Built a clean and intuitive interface with scalable backend logic.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <h3>3D Escape Room Game</h3>
+            <div class="tech">Unity, C#, Game Development</div>
+            <ul>
+              <li>Developed a 3D first-person escape room game with immersive exploration and puzzle-solving.</li>
+              <li>Implemented procedural dungeon generation using a BSP-based approach.</li>
+              <li>Built puzzle mechanics, interactive traps, physics-based interactions, and enemy AI.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="leadership" class="card">
+        <h2 class="section-title">Leadership & Extracurricular</h2>
+        <ul class="list">
+          <li>Event Chair at IEEE SIT Student Branch, leading a team of 40 students and coordinating events.</li>
+          <li>Member of IEEE Bombay Section SAC, contributing to design projects and collaborative initiatives.</li>
+          <li>Competitive badminton player with experience representing my university and state in tournaments.</li>
+        </ul>
+      </section>
+
+      <section id="contact" class="card">
+        <h2 class="section-title">Contact</h2>
+        <p>I’m open to graduate opportunities in backend development, software engineering, and data-driven roles.</p>
+        <p class="contact-links"><strong>Email:</strong> <a href="mailto:kotmirearyan1@gmail.com">kotmirearyan1@gmail.com</a><br /><strong>Phone:</strong> +44 7818952371 / +91 9136396899<br /><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aryankotmire/" target="_blank" rel="noopener">linkedin.com/in/aryankotmire</a><br /><strong>GitHub:</strong> <a href="https://github.com/Sierra-007" target="_blank" rel="noopener">github.com/Sierra-007</a></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="container">© 2026 Aryan Kotmire. All rights reserved.</div></footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const saved = localStorage.getItem('theme') || 'light';
+    if (saved === 'dark') { body.setAttribute('data-theme', 'dark'); toggle.checked = true; }
+    toggle.addEventListener('change', () => {
+      const theme = toggle.checked ? 'dark' : 'light';
+      body.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    });
+  </script>
+</body>
+</html>
